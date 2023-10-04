@@ -7,7 +7,57 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Documenation Stuff</h1>
-    <h2>it worked yay</h2>
+    <table>
+        <tr>
+            <th>Request</th>
+            <th>URL</th>
+            <th>Response</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>localhost:8080/movies</td>
+            <td>returns a list of all movies</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>localhost:8080/movies/movieTitle</td>
+            <td>returns all store data on the given movie</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>localhost:8080/movies/genre/wantedGenre</td>
+            <td>returns info about specified genre</td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>localhost:8080/movies/director/movieTitle</td>
+            <td>returns the director of the movie</td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>localhost:8080/userList</td>
+            <td>Adds a new user to the list</td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>localhost:8080/user/userID</td>
+            <td>changes user details</td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>localhost:8080/users/userID/movieTitle</td>
+            <td>adds the specified movie to the specified users favorites list</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>localhost:8080/users/userID/movieTitle</td>
+            <td>removes the movie from the specified users favorites list</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>localhost:8080/users/userID</td>
+            <td>deletes the given user from the user list</td>
+        </tr>
+    </table>
 </body>
 </html>

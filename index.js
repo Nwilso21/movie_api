@@ -6,7 +6,7 @@ const Users = Models.User;
 
 const {check, validationResult} = require('express-validator');
 
-mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://kevin12:1234@cluster0.ejwhaxe.mongodb.net/myflixdb?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const express = require("express"),
   morgan = require("morgan"),

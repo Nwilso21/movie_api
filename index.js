@@ -269,7 +269,8 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something went wrong");
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log("Listening on Port" + port);
+const port = process.env.PORT || 8080;
+const host = '0.0.0.0'
+app.listen(port, host, function() {
+  console.log("Server started.......");
 });

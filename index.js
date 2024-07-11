@@ -33,10 +33,17 @@ let auth = require("./auth")(app);
 const passport = require("passport");
 require("./passport");
 
+/**
+ * Authenticates with the API
+ */
+
 app.get("/", passport.authenticate("jwt", { session: false }), (req, res) => {
   res.send("Welcome to my movie API!");
 });
 
+/**
+ * gets movies from database
+ */
 app.get("/movies", async (req, res) => {
   await Movies.find()
     .then((movies) => {
@@ -48,6 +55,9 @@ app.get("/movies", async (req, res) => {
     });
 });
 
+/**
+ * gets a movie by title
+ */
 app.get(
   "/movies/:Title",
   passport.authenticate("jwt", { session: false }),
@@ -63,6 +73,9 @@ app.get(
   }
 );
 
+/**
+ * gets a movie by genre
+ */
 app.get(
   "/movies/genres/:Genre",
   passport.authenticate("jwt", { session: false }),
@@ -78,6 +91,9 @@ app.get(
   }
 );
 
+/**
+ * gets a movie by director name
+ */
 app.get(
   "/movies/directors/:directorName",
   passport.authenticate("jwt", { session: false }),
@@ -92,6 +108,10 @@ app.get(
       });
   }
 );
+
+/**
+ * gets a list of users
+ */
 
 app.get(
   "/users",
@@ -108,6 +128,10 @@ app.get(
   }
 );
 
+/**
+ * gets a users details
+ */
+
 app.get(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
@@ -123,6 +147,11 @@ app.get(
   }
 );
 
+
+
+/**
+ * creates a user with the given details
+ */
 app.post('/users',
   [
     check('Username', 'Username is required').isLength({min: 5}),
@@ -162,6 +191,10 @@ app.post('/users',
       });
   });
 
+/**
+ * updates a users details
+ */
+
 app.put(
   "/users/:Username",[
     check('Username', 'Username is required').isLength({min: 5}),
@@ -191,6 +224,10 @@ app.put(
   }
 );
 
+/**
+ * adds a movie to a users list
+ */
+
 app.post(
   "/users/:Username/movies/:MovieID",
   passport.authenticate("jwt", { session: false }),
@@ -212,6 +249,10 @@ app.post(
   }
 );
 
+/**
+ * deletes a user
+ */
+
 app.delete(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
@@ -230,6 +271,10 @@ app.delete(
       });
   }
 );
+
+/**
+ * delets a movie from a users list
+ */
 
 app.delete(
   "/users/:Username/movies/:MovieID",
